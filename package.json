@@ -18,7 +18,7 @@
     "commands": [
       {
         "command": "vulkan-api-docs.openApiDoc",
-        "title": "Vulkan: Open API doc"
+        "title": "Open Vulkan API doc"
       }
     ],
     "menus": {
