@@ -1,4 +1,4 @@
-# vulkan-api-docs README
+# vulkan-api-docs
 
 Adds a VSCode editor context menu action that tries to open the Vulkan API doc for the symbol under the cursor in C and C++ files.
 
