@@ -3,6 +3,12 @@
   "displayName": "Vulkan API Docs",
   "description": "Vulkan API documentation action to the editor context menu (C, C++).",
   "version": "0.1.0",
+  "publisher": "sndels",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sndels/vulkan-api-docs"
+  },
   "engines": {
     "vscode": "^1.73.0"
   },
