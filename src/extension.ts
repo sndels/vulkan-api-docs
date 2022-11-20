@@ -1,25 +1,51 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as https from "https";
+import * as vscode from "vscode";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
-export function activate(context: vscode.ExtensionContext) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "vulkan-api-docs" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('vulkan-api-docs.openApiDoc', () => {
-		let uri = vscode.Uri.parse("https://registry.khronos.org/vulkan/specs/1.3/html/")
-		vscode.env.openExternal(uri)
-	});
-
-	context.subscriptions.push(disposable);
+function tryOpenApiDoc(symbol: string) {
+  const url =
+    "https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/" +
+    symbol +
+    ".html";
+  const options = {
+    method: "HEAD",
+  };
+  https
+    .request(url, options, (res) => {
+      if (res.statusCode === 200) {
+        const uri = vscode.Uri.parse(url);
+        vscode.env.openExternal(uri);
+        console.log("Found Vulkan API for '" + symbol + "'");
+      } else {
+        console.log("Couldn't find Vulkan API for '" + symbol + "'");
+      }
+    })
+    .end();
 }
 
-// This method is called when your extension is deactivated
+export function activate(context: vscode.ExtensionContext) {
+  const disposable = vscode.commands.registerCommand(
+    "vulkan-api-docs.openApiDoc",
+    () => {
+      const editor = vscode.window.activeTextEditor;
+      const document = editor?.document;
+      const selection = editor?.selection;
+      if (selection !== undefined) {
+        const range = document?.getWordRangeAtPosition(selection.start);
+        const symbol = document?.getText(range);
+        if (symbol !== undefined) {
+          // Maybe symbol is valid as is
+          tryOpenApiDoc(symbol);
+          // Maybe symbol is a (vk::)Type
+          tryOpenApiDoc("Vk" + symbol);
+          const upperSymbol = symbol.charAt(0).toUpperCase() + symbol.slice(1);
+          // Maybe symbol is a (type.)functionCall or (vk::)functionCall
+          tryOpenApiDoc("vk" + upperSymbol);
+        }
+      }
+    }
+  );
+
+  context.subscriptions.push(disposable);
+}
+
 export function deactivate() {}
