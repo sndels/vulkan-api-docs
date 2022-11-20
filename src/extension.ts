@@ -14,7 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
 	// Now provide the implementation of the command with registerCommand
 	// The commandId parameter must match the command field in package.json
 	let disposable = vscode.commands.registerCommand('vulkan-api-docs.openApiDoc', () => {
-		let uri = vscode.Uri.parse("https://registry.khronos.org/vulkan/specs/1.3-extensions/man/html/VkDevice.html")
+		let uri = vscode.Uri.parse("https://registry.khronos.org/vulkan/specs/1.3/html/")
 		vscode.env.openExternal(uri)
 	});
 
