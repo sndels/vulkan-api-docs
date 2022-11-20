@@ -1,8 +1,8 @@
 {
   "name": "vulkan-api-docs",
   "displayName": "Vulkan API Docs",
-  "description": "Adds context menu action to 'vkXxxx' and 'vk::Xxxx' symbols that opens the API doc for it in a browser.",
-  "version": "0.0.1",
+  "description": "Vulkan API documentation action to the editor context menu (C, C++).",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.73.0"
   },
