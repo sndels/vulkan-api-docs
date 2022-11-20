@@ -21,7 +21,15 @@
         "command": "vulkan-api-docs.openApiDoc",
         "title": "111 Open API doc"
       }
-    ]
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "vulkan-api-docs.openApiDoc",
+          "when": "resourceLangId == c || resourceLangId == cpp || resourceLangId == rust"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
