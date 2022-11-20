@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/sndels/vulkan-api-docs"
+    "url": "https://github.com/sndels/vulkan-api-docs.git"
   },
   "engines": {
     "vscode": "^1.73.0"
