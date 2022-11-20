@@ -33,11 +33,19 @@ export function activate(context: vscode.ExtensionContext) {
         const range = document?.getWordRangeAtPosition(selection.start);
         const symbol = document?.getText(range);
         if (symbol !== undefined) {
+          // This will open docs for all 'matching' APIs so running on e.g.
+          // xxx.buildAccelerationStructuresKHR will open doc for both
+          // VkBuildAccelerationStructuresKHR and VkCmdBuildAccelerationStructuresKHR
+
           // Maybe symbol is valid as is
           tryOpenApiDoc(symbol);
           // Maybe symbol is a (vk::)Type
           tryOpenApiDoc("Vk" + symbol);
           const upperSymbol = symbol.charAt(0).toUpperCase() + symbol.slice(1);
+          // Maybe symbol is a (commandBuffer.)functionCall
+          // Do command buffer command before potential device command as cb
+          // calls seem more common in the wild
+          tryOpenApiDoc("vkCmd" + upperSymbol);
           // Maybe symbol is a (type.)functionCall or (vk::)functionCall
           tryOpenApiDoc("vk" + upperSymbol);
         }
