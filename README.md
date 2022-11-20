@@ -1,6 +1,6 @@
 # vulkan-api-docs README
 
-Adds an editor context menu action that tries to open the Vulkan API doc for the symbol under the cursor in C and C++ files.
+Adds a VSCode editor context menu action that tries to open the Vulkan API doc for the symbol under the cursor in C and C++ files.
 
 ## Features
 
@@ -10,6 +10,10 @@ The action tries opening docs for both the raw symbol and simple mappings assumi
 
 Lag between docs opening if more than one are opened. Seems like an intentional feature in `vscode.env.openExternal()`.
 
+## Installing
+
+Not in the marketplace yet, but the release vsix can be installed manually with `code --install-extension [vsix]`.
+
 ## Release Notes
 
 ### 0.1.0
@@ -18,4 +22,4 @@ Initial release
 
 ## Dev-notes
 
-Run `npm install dependencies` to setup env. `npm run -S vscode:prepublish` to build publishable output.
+Run `npm install dependencies` to setup env. `vsce package` to build the vsix.
