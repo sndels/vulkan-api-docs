@@ -15,3 +15,7 @@ Lag between docs opening if more than one are opened. Seems like an intentional 
 ### 0.1.0
 
 Initial release
+
+## Dev-notes
+
+Run `npm install dependencies` to setup env. `npm run -S vscode:prepublish` to build publishable output.
