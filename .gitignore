@@ -1,5 +1,5 @@
 out
-!out/extension.js
+dist
 node_modules
 .vscode-test/
 *.vsix
