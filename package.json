@@ -11,8 +11,7 @@
   ],
   "activationEvents": [
     "onLanguage:c",
-    "onLanguage:cpp",
-    "onLanguage:rust"
+    "onLanguage:cpp"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -26,7 +25,7 @@
       "editor/context": [
         {
           "command": "vulkan-api-docs.openApiDoc",
-          "when": "resourceLangId == c || resourceLangId == cpp || resourceLangId == rust"
+          "when": "resourceLangId == c || resourceLangId == cpp"
         }
       ]
     }
