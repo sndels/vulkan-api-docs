@@ -2,7 +2,7 @@
   "name": "vulkan-api-docs",
   "displayName": "Vulkan API Docs",
   "description": "Vulkan API documentation action to the editor context menu (C, C++).",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "sndels",
   "license": "MIT",
   "repository": {

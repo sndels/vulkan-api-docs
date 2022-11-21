@@ -10,11 +10,11 @@ The action tries opening docs for both the raw symbol and simple mappings assumi
 
 Lag between docs opening if more than one are opened. Seems like an intentional feature in `vscode.env.openExternal()`.
 
-## Installing
-
-Not in the marketplace yet, but the release vsix can be installed manually with `code --install-extension [vsix]`.
-
 ## Release Notes
+
+### 0.1.1
+
+Readme cleanup
 
 ### 0.1.0
 
