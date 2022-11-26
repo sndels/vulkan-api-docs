@@ -9,3 +9,4 @@ dev.md
 **/.eslintrc.json
 **/*.map
 **/*.ts
+renovate.json
